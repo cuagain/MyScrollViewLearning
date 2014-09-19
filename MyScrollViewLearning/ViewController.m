@@ -27,14 +27,20 @@
         lab.text = [NSString stringWithFormat:@"This is label %d", i+1];
         [lab sizeToFit];
         CGRect f = lab.frame;
+        
         f.origin = CGPointMake(10,y);
+        f.size.width = self.view.bounds.size.width - 20;
         lab.frame = f;
+        lab.backgroundColor = [UIColor redColor];
+        lab.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         [self.scrollView addSubview:lab];
         y += lab.bounds.size.height + 10;
     }
     CGSize sz = self.scrollView.bounds.size;
     sz.height = y;
     self.scrollView.contentSize = sz;
+    
+    NSLog(@"%f", y);
     
 }
 
