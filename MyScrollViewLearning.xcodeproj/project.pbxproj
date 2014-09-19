@@ -21,6 +21,7 @@
 		D329B4EA19CC2494007794AD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D329B4CC19CC2493007794AD /* UIKit.framework */; };
 		D329B4F219CC2494007794AD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D329B4F019CC2494007794AD /* InfoPlist.strings */; };
 		D329B4F419CC2494007794AD /* MyScrollViewLearningTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D329B4F319CC2494007794AD /* MyScrollViewLearningTests.m */; };
+		D329B50019CC4170007794AD /* Main2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D329B4FF19CC4170007794AD /* Main2.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		D329B4EF19CC2494007794AD /* MyScrollViewLearningTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MyScrollViewLearningTests-Info.plist"; sourceTree = "<group>"; };
 		D329B4F119CC2494007794AD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D329B4F319CC2494007794AD /* MyScrollViewLearningTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyScrollViewLearningTests.m; sourceTree = "<group>"; };
+		D329B4FF19CC4170007794AD /* Main2.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main2.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				D329B4DA19CC2493007794AD /* Main.storyboard */,
+				D329B4FF19CC4170007794AD /* Main2.storyboard */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -246,6 +249,7 @@
 			files = (
 				D329B4E119CC2493007794AD /* Images.xcassets in Resources */,
 				D329B4D319CC2493007794AD /* InfoPlist.strings in Resources */,
+				D329B50019CC4170007794AD /* Main2.storyboard in Resources */,
 				D329B4DC19CC2493007794AD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
