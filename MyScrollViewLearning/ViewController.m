@@ -21,7 +21,52 @@
     
     //[self scrollViewWithCoding];
     
-    [self scrollViewCodingWithAutoLayout];
+    //[self scrollViewCodingWithAutoLayout];
+    
+    [self scrollViewCodingByContentView];
+    
+}
+
+-(void) scrollViewCodingByContentView {
+    UIScrollView* sv = [UIScrollView new];
+    sv.backgroundColor = [UIColor whiteColor];
+    sv.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.view addSubview:sv];
+    [self.view addConstraints:
+     [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[sv]|"
+                                             options:0 metrics:nil
+                                               views:@{@"sv":sv}]];
+    [self.view addConstraints:
+     [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[sv]|"
+                                             options:0 metrics:nil
+                                               views:@{@"sv":sv}]];
+    UIView* v = [UIView new]; // content view
+    [sv addSubview: v];
+    
+    CGFloat y = 10;
+    for (int i=0; i<30; i++) {
+        UILabel* lab = [UILabel new];
+        lab.text = [NSString stringWithFormat:@"This is label %d", i+1];
+        [lab sizeToFit];
+        CGRect f = lab.frame;
+        f.origin = CGPointMake(10,y);
+        lab.frame = f;
+        [v addSubview:lab]; // add to content view, not scroll view
+        y += lab.bounds.size.height + 10;
+    }
+    // set content view frame and content size explicitly
+    
+    // Approach 1
+    //v.frame = CGRectMake(0,0,0,y);
+    //sv.contentSize = v.frame.size;
+    
+    v.translatesAutoresizingMaskIntoConstraints = NO;
+    [sv addConstraints:
+     [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[v(y)]|"
+                                             options:0 metrics:@{@"y":@(y)} views:@{@"v":v}]];
+    [sv addConstraints:
+     [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[v(0)]|"
+                                             options:0 metrics:nil views:@{@"v":v}]];
     
 }
 
