@@ -18,6 +18,24 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    self.scrollView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    self.scrollView.backgroundColor = [UIColor whiteColor];
+    CGFloat y = 10;
+    for (int i=0; i<30; i++) {
+        UILabel* lab = [UILabel new];
+        lab.text = [NSString stringWithFormat:@"This is label %d", i+1];
+        [lab sizeToFit];
+        CGRect f = lab.frame;
+        f.origin = CGPointMake(10,y);
+        lab.frame = f;
+        [self.scrollView addSubview:lab];
+        y += lab.bounds.size.height + 10;
+    }
+    CGSize sz = self.scrollView.bounds.size;
+    sz.height = y;
+    self.scrollView.contentSize = sz;
+    
 }
 
 - (void)didReceiveMemoryWarning
