@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		90FCA27419CDD330004878C9 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90FCA27319CDD330004878C9 /* MainViewController.m */; };
 		D329B4C919CC2493007794AD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D329B4C819CC2493007794AD /* Foundation.framework */; };
 		D329B4CB19CC2493007794AD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D329B4CA19CC2493007794AD /* CoreGraphics.framework */; };
 		D329B4CD19CC2493007794AD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D329B4CC19CC2493007794AD /* UIKit.framework */; };
@@ -35,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		90FCA27219CDD330004878C9 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		90FCA27319CDD330004878C9 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		D329B4C519CC2493007794AD /* MyScrollViewLearning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyScrollViewLearning.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D329B4C819CC2493007794AD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D329B4CA19CC2493007794AD /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -158,6 +161,8 @@
 			children = (
 				D329B4DD19CC2493007794AD /* ViewController.h */,
 				D329B4DE19CC2493007794AD /* ViewController.m */,
+				90FCA27219CDD330004878C9 /* MainViewController.h */,
+				90FCA27319CDD330004878C9 /* MainViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -272,6 +277,7 @@
 				D329B4DF19CC2493007794AD /* ViewController.m in Sources */,
 				D329B4D919CC2493007794AD /* AppDelegate.m in Sources */,
 				D329B4D519CC2493007794AD /* main.m in Sources */,
+				90FCA27419CDD330004878C9 /* MainViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -476,6 +482,7 @@
 				D329B4F919CC2494007794AD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D329B4FA19CC2494007794AD /* Build configuration list for PBXNativeTarget "MyScrollViewLearningTests" */ = {
 			isa = XCConfigurationList;
@@ -484,6 +491,7 @@
 				D329B4FC19CC2494007794AD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

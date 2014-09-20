@@ -43,7 +43,7 @@
     UIView* v = [UIView new]; // content view
     [sv addSubview: v];
     
-    CGFloat y = 10;
+    /*CGFloat y = 10;
     for (int i=0; i<30; i++) {
         UILabel* lab = [UILabel new];
         lab.text = [NSString stringWithFormat:@"This is label %d", i+1];
@@ -53,20 +53,71 @@
         lab.frame = f;
         [v addSubview:lab]; // add to content view, not scroll view
         y += lab.bounds.size.height + 10;
-    }
+    }*/
     // set content view frame and content size explicitly
     
     // Approach 1
     //v.frame = CGRectMake(0,0,0,y);
     //sv.contentSize = v.frame.size;
     
-    v.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    // Approach 2
+    /*v.translatesAutoresizingMaskIntoConstraints = NO;
     [sv addConstraints:
      [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[v(y)]|"
                                              options:0 metrics:@{@"y":@(y)} views:@{@"v":v}]];
     [sv addConstraints:
      [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[v(0)]|"
-                                             options:0 metrics:nil views:@{@"v":v}]];
+                                             options:0 metrics:nil views:@{@"v":v}]];*/
+    
+    
+     //Approach 3 and 4
+    UILabel* previousLab = nil;
+    for (int i=0; i<30; i++) {
+        UILabel* lab = [UILabel new];
+        lab.translatesAutoresizingMaskIntoConstraints = NO;
+        lab.text = [NSString stringWithFormat:@"This is label %d", i+1];
+        [v addSubview:lab];
+        [v addConstraints:
+         [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(10)-[lab]"
+                                                 options:0 metrics:nil
+                                                   views:@{@"lab":lab}]];
+        if (!previousLab) { // first one, pin to top
+            [v addConstraints:
+             [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(10)-[lab]"
+                                                     options:0 metrics:nil
+                                                       views:@{@"lab":lab}]];
+        } else { // all others, pin to previous
+                  [v addConstraints:
+                   [NSLayoutConstraint
+                    constraintsWithVisualFormat:@"V:[prev]-(10)-[lab]"
+                    options:0 metrics:nil
+                    views:@{@"lab":lab, @"prev":previousLab}]];
+        }
+        
+        previousLab = lab;
+    }
+    
+    // Approach 3 and 4
+    // last one, pin to bottom, this dictates content view height
+    [v addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[lab]-(10)-|"
+                                                       options:0 metrics:nil
+                                                         views:@{@"lab":previousLab}]];
+    // Approach 3
+    /*// configure the content view using constraints
+    v.translatesAutoresizingMaskIntoConstraints = NO;
+    [sv addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[v]|"
+                                                               options:0 metrics:nil views:@{@"v":v}]];
+    
+    [sv addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[v(0)]|"
+                                                       options:0 metrics:nil views:@{@"v":v}]];
+     */
+    
+    // Approach 4
+    CGSize minsz = [v systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+    // set content view frame and content size explicitly
+    v.frame = CGRectMake(0,0,0,minsz.height);
+    sv.contentSize = v.frame.size;
     
 }
 
